@@ -32,10 +32,24 @@ class MyApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //Uygulamanın Başlık Kısmı
                 buildBaslik(),
-                //Uygulamanın Banner Kısmı
                 buildBanner(),
+                //Buton Kısmı
+                Padding(
+                  padding: EdgeInsets.only(top: 48),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        //İlk Buton
+                        buildNavigation(text: "Kategoriler", icon: Icons.menu),
+                        buildNavigation(
+                            text: "Favoriler", icon: Icons.star_border),
+                        buildNavigation(
+                            text: "Hediyeler", icon: Icons.card_giftcard),
+                        buildNavigation(
+                            text: "Çok Satanlar", icon: Icons.people),
+                      ]),
+                )
               ],
             ),
           ),
@@ -49,7 +63,7 @@ Widget buildBaslik() {
   return Padding(
     padding: const EdgeInsets.only(top: 24.0),
     child: Text(
-      'Home',
+      'Ana Ekran',
       style: TextStyle(
         fontSize: 32,
         color: Colors.white,
@@ -59,7 +73,7 @@ Widget buildBaslik() {
   );
 }
 
-buildBanner() {
+Widget buildBanner() {
   return Padding(
     padding: EdgeInsets.only(top: 24.0),
     child: Container(
@@ -98,6 +112,46 @@ buildBanner() {
           ),
         ],
       ),
+    ),
+  );
+}
+
+Widget buildNavigation({
+  required String text,
+  required IconData icon,
+  Widget? widget,
+  BuildContext? context,
+}) {
+  return GestureDetector(
+    onTap: () {
+      // şuan contex ve widget sahip olmadığımız için ! ve ? işaretlerini kullan
+      // rak required kalıbından kurtuluyoruz ilerleyen zamanda düzenlenicek.
+      Navigator.push(context!, MaterialPageRoute(builder: (context) {
+        return widget!;
+      }));
+    },
+    child: Column(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 19, vertical: 22),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+          ),
+          child: Icon(
+            icon,
+            color: Colors.black,
+            size: 18,
+          ),
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Text(
+          text,
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        )
+      ],
     ),
   );
 }
