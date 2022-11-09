@@ -6,13 +6,24 @@ void main() {
   runApp(MyApp());
 }
 
+class ThemeClass {
+  static ThemeData darkTheme = ThemeData(
+      scaffoldBackgroundColor: Colors.black,
+      colorScheme: ColorScheme.dark(),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.black,
+      ));
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeClass.darkTheme,
       title: 'Ana Sayfa',
       theme: ThemeData(
-        primaryColor: Colors.blue,
+        primaryColor: Colors.white,
       ),
       home: Scaffold(
         body: SafeArea(
@@ -20,16 +31,21 @@ class MyApp extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
-                //Başlık,Banner,Butonlar ve Satış kısmından oluşucak.
                 Padding(
                   padding: const EdgeInsets.only(top: 24.0),
                   child: Text(
                     'Home',
                     style: TextStyle(
                       fontSize: 32,
-                      color: Color(0xFF0A1034),
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 24.0),
+                  child: Container(
+                    decoration: BoxDecoration(color: Colors.white),
                   ),
                 )
               ],
