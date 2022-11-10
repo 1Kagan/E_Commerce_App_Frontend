@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, non_constant_identifier_names
 
 import 'package:e_commerce_app_frontend/categories.dart';
+import 'package:e_commerce_app_frontend/category.dart';
 import 'package:e_commerce_app_frontend/components/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 
@@ -63,6 +64,8 @@ class _HomePageState extends State<HomePage> {
                           text: "Akıllı Telefonlar",
                           PhotoUrl: "assets/images/iphone14pro.png",
                           discount: '-50%',
+                          widget: CategoryPage(),
+                          context: context,
                           screenWidth: screenWidth),
                       buildSalesItem(
                           text: "Monitorler",
@@ -203,32 +206,42 @@ Widget buildSalesItem({
   required PhotoUrl,
   required String discount,
   required screenWidth,
+  Widget? widget,
+  BuildContext? context,
 }) {
-  return Container(
-    width: (screenWidth - 60) * 0.5,
-    padding: EdgeInsets.only(left: 12, top: 12, bottom: 21, right: 12),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: EdgeInsets.all(4),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(2),
-              color: Color.fromARGB(58, 255, 249, 249)),
-          child: Text(discount,
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        ),
-        Center(
-            child: Image.asset(
-          PhotoUrl,
-          height: 150,
-        )),
-        SizedBox(height: 5),
-        Center(
-          child: Text(text, style: TextStyle(fontSize: 18)),
-        )
-      ],
+  return GestureDetector(
+    onTap: () {
+      Feedback.forTap(context!);
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return widget!;
+      }));
+    },
+    child: Container(
+      width: (screenWidth - 60) * 0.5,
+      padding: EdgeInsets.only(left: 12, top: 12, bottom: 21, right: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(4),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(2),
+                color: Color.fromARGB(58, 255, 249, 249)),
+            child: Text(discount,
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold)),
+          ),
+          Center(
+              child: Image.asset(
+            PhotoUrl,
+            height: 150,
+          )),
+          SizedBox(height: 5),
+          Center(
+            child: Text(text, style: TextStyle(fontSize: 18)),
+          )
+        ],
+      ),
     ),
   );
 }
