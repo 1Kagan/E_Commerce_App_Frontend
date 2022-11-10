@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 
@@ -13,79 +13,119 @@ class _HomePageState extends State<HomePage> {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: ListView(
-            children: [
-              buildBaslik(),
-              buildBanner(),
-              //Buton Kısmı
-              Padding(
-                padding: EdgeInsets.only(top: 48),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: ListView(
+                children: [
+                  buildBaslik(),
+                  buildBanner(),
+                  //Buton Kısmı
+                  Padding(
+                    padding: EdgeInsets.only(top: 48),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          buildNavigation(
+                              text: "Kategoriler", icon: Icons.menu),
+                          buildNavigation(
+                              text: "Favoriler", icon: Icons.star_border),
+                          buildNavigation(
+                              text: "Hediyeler", icon: Icons.card_giftcard),
+                          buildNavigation(
+                              text: "Çok Satanlar", icon: Icons.people),
+                        ]),
+                  ),
+                  SizedBox(height: 40),
+                  //Satış Kısmı Başlık
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      "Ürünler",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  //Ürünlerin Gözüktüğü Kısım
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      buildNavigation(text: "Kategoriler", icon: Icons.menu),
-                      buildNavigation(
-                          text: "Favoriler", icon: Icons.star_border),
-                      buildNavigation(
-                          text: "Hediyeler", icon: Icons.card_giftcard),
-                      buildNavigation(text: "Çok Satanlar", icon: Icons.people),
-                    ]),
+                      buildSalesItem(
+                          text: "Akıllı Telefonlar",
+                          PhotoUrl: "assets/images/iphone14pro.png",
+                          discount: '-50%',
+                          screenWidth: screenWidth),
+                      buildSalesItem(
+                          text: "Monitorler",
+                          PhotoUrl: "assets/images/Monitor.png",
+                          discount: '-20%',
+                          screenWidth: screenWidth),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      buildSalesItem(
+                          text: "Akıllı Saatler",
+                          PhotoUrl: "assets/images/watch.png",
+                          discount: '-40%',
+                          screenWidth: screenWidth),
+                      buildSalesItem(
+                          text: "Kulaklıklar",
+                          PhotoUrl: "assets/images/airpod.png",
+                          discount: '-60%',
+                          screenWidth: screenWidth),
+                    ],
+                  )
+                ],
               ),
-              SizedBox(height: 40),
-              //Satış Kısmı Başlık
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  "Ürünler",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                      color: Colors.white),
+            ),
+            //Botom navigation Bar
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        offset: Offset(0, -3),
+                        color: Colors.black.withOpacity(0.25))
+                  ],
+                  color: Color.fromARGB(255, 255, 255, 255),
+                ),
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    buildNavIcon(iconData: Icons.home_filled, active: false),
+                    buildNavIcon(iconData: Icons.search, active: false),
+                    buildNavIcon(
+                        iconData: Icons.shopping_basket, active: false),
+                    buildNavIcon(iconData: Icons.person, active: false),
+                  ],
                 ),
               ),
-              SizedBox(height: 16),
-              //Ürünlerin Gözüktüğü Kısım
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  buildSalesItem(
-                      text: "Akıllı Telefonlar",
-                      PhotoUrl: "assets/images/iphone14pro.png",
-                      discount: '-50%',
-                      screenWidth: screenWidth),
-                  buildSalesItem(
-                      text: "Monitorler",
-                      PhotoUrl: "assets/images/Monitor.png",
-                      discount: '-20%',
-                      screenWidth: screenWidth),
-                ],
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  buildSalesItem(
-                      text: "Akıllı Saatler",
-                      PhotoUrl: "assets/images/watch.png",
-                      discount: '-40%',
-                      screenWidth: screenWidth),
-                  buildSalesItem(
-                      text: "Kulaklıklar",
-                      PhotoUrl: "assets/images/airpod.png",
-                      discount: '-60%',
-                      screenWidth: screenWidth),
-                ],
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
   }
+}
+
+Widget buildNavIcon({required IconData iconData, required bool active}) {
+  return Icon(
+    iconData,
+    size: 22,
+    color: Color(active ? 0xFF0A1034 : 0xFF0A1034),
+  );
 }
 
 Widget buildBaslik() {
@@ -108,7 +148,8 @@ Widget buildBanner() {
     child: Container(
       padding: EdgeInsets.only(left: 24, right: 36, top: 14, bottom: 18),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(6)),
+          color: Color.fromARGB(255, 244, 244, 245),
+          borderRadius: BorderRadius.circular(6)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -165,7 +206,7 @@ Widget buildNavigation({
           padding: EdgeInsets.symmetric(horizontal: 19, vertical: 22),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white,
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
           child: Icon(
             icon,
