@@ -63,7 +63,8 @@ class CategoryPage extends StatelessWidget {
                 }).toList()),
           )
         ]),
-      )
+      ),
+      bottomNavigationBar(),
     ])));
   }
 }
@@ -78,11 +79,11 @@ Widget buildContent({
       horizontal: 12,
     ),
     decoration: BoxDecoration(
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: Color.fromARGB(85, 87, 85, 85),
       borderRadius: BorderRadius.circular(6),
       boxShadow: [
         BoxShadow(
-            color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.08),
+            color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.08),
             blurRadius: 24,
             offset: Offset(0, 16))
       ],
@@ -105,13 +106,13 @@ Widget buildContent({
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Color.fromARGB(255, 255, 255, 255)),
             ),
             Text("$price TL",
                 style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black)),
+                    color: Color.fromARGB(255, 255, 255, 255))),
             SizedBox(
               height: 18,
             ),

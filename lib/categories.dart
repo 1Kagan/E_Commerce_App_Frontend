@@ -11,7 +11,7 @@ class CategoriesPage extends StatelessWidget {
     'Akıllı Telefonlar',
     'Akıllı Saatler',
     'Kulaklıklar',
-    'Bilgisayarlar',
+    'Laptoplar',
     'Aksesuarlar'
   ];
 
@@ -63,18 +63,20 @@ Widget buildkategori({required String title, context}) {
       margin: EdgeInsets.only(bottom: 16),
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color.fromARGB(85, 87, 85, 85),
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(
-                color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.25),
+                color: Color.fromARGB(159, 92, 90, 90).withOpacity(0.25),
                 blurRadius: 4,
                 offset: Offset(0, 4)),
           ]),
       child: Text(
         title,
         style: TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w600, color: Colors.black),
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+            color: Color.fromARGB(255, 255, 253, 253)),
       ),
     ),
   );
