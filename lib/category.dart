@@ -73,52 +73,62 @@ Widget buildContent({
   required String photoUrl,
   required String title,
   required String price,
+  Widget? widget,
+  BuildContext? context,
 }) {
-  return Container(
-    padding: EdgeInsets.symmetric(
-      horizontal: 12,
-    ),
-    decoration: BoxDecoration(
-      color: Color.fromARGB(85, 87, 85, 85),
-      borderRadius: BorderRadius.circular(6),
-      boxShadow: [
-        BoxShadow(
-            color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.08),
-            blurRadius: 24,
-            offset: Offset(0, 16))
-      ],
-    ),
-    child: Column(
-      children: [
-        SizedBox(
-          height: 16,
-        ),
-        Image.asset(
-          photoUrl,
-          height: 120,
-          width: 1200,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 255, 255, 255)),
-            ),
-            Text("$price TL",
+  return GestureDetector(
+    onTap: () {
+      Feedback.forTap(context!);
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return widget!;
+      }));
+    },
+    child: Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 12,
+      ),
+      decoration: BoxDecoration(
+        color: Color.fromARGB(85, 87, 85, 85),
+        borderRadius: BorderRadius.circular(6),
+        boxShadow: [
+          BoxShadow(
+              color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.08),
+              blurRadius: 24,
+              offset: Offset(0, 16))
+        ],
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 16,
+          ),
+          Image.asset(
+            photoUrl,
+            height: 120,
+            width: 1200,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
                 style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Color.fromARGB(255, 255, 255, 255))),
-            SizedBox(
-              height: 18,
-            ),
-          ],
-        ),
-      ],
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 255, 255, 255)),
+              ),
+              Text("$price TL",
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 255, 255, 255))),
+              SizedBox(
+                height: 18,
+              ),
+            ],
+          ),
+        ],
+      ),
     ),
   );
 }

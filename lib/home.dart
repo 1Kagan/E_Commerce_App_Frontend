@@ -91,6 +91,9 @@ class _HomePageState extends State<HomePage> {
                           discount: '-60%',
                           screenWidth: screenWidth),
                     ],
+                  ),
+                  SizedBox(
+                    height: 45,
                   )
                 ],
               ),
