@@ -1,5 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, non_constant_identifier_names
 
+import 'package:e_commerce_app_frontend/categories.dart';
+import 'package:e_commerce_app_frontend/components/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +30,10 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           buildNavigation(
-                              text: "Kategoriler", icon: Icons.menu),
+                              text: "Kategoriler",
+                              icon: Icons.menu,
+                              widget: CategoriesPage(),
+                              context: context),
                           buildNavigation(
                               text: "Favoriler", icon: Icons.star_border),
                           buildNavigation(
@@ -88,44 +93,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             //Botom navigation Bar
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        offset: Offset(0, -3),
-                        color: Colors.black.withOpacity(0.25))
-                  ],
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    buildNavIcon(iconData: Icons.home_filled, active: false),
-                    buildNavIcon(iconData: Icons.search, active: false),
-                    buildNavIcon(
-                        iconData: Icons.shopping_basket, active: false),
-                    buildNavIcon(iconData: Icons.person, active: false),
-                  ],
-                ),
-              ),
-            )
+            bottomNavigationBar(),
           ],
         ),
       ),
     );
   }
-}
-
-Widget buildNavIcon({required IconData iconData, required bool active}) {
-  return Icon(
-    iconData,
-    size: 22,
-    color: Color(active ? 0xFF0A1034 : 0xFF0A1034),
-  );
 }
 
 Widget buildBaslik() {
