@@ -68,6 +68,9 @@ flutter:
      - assets/images/airpod.png
      - assets/images/iphone13pro.png
      - assets/images/iphone12pro.png
+     - assets/images/iphone13mini.png
+     - assets/images/iphone12mini.png
+     - assets/images/iphone14.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

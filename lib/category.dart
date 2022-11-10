@@ -11,29 +11,29 @@ class CategoryPage extends StatelessWidget {
       "fiyat": "54.000.00"
     },
     {
+      "fotograf": "assets/images/iphone14.png",
+      "isim": "Iphone 14 ",
+      "fiyat": "30.999.00"
+    },
+    {
       "fotograf": "assets/images/iphone13pro.png",
       "isim": "Iphone 13 Pro Max ",
       "fiyat": "44.799.00"
     },
     {
+      "fotograf": "assets/images/iphone13mini.png",
+      "isim": "Iphone 13 Mini",
+      "fiyat": "27.199.00"
+    },
+    {
       "fotograf": "assets/images/iphone12pro.png",
-      "isim": "Iphone 12 Pro ",
-      "fiyat": "54.000.00"
+      "isim": "Iphone 12 Pro Max ",
+      "fiyat": "30.999,00 "
     },
     {
-      "fotograf": "assets/images/iphone14pro.png",
-      "isim": "Iphone 17 Pro Max",
-      "fiyat": "54.000.00"
-    },
-    {
-      "fotograf": "assets/images/iphone14pro.png",
-      "isim": "Iphone 18 Pro Max",
-      "fiyat": "54.000.00"
-    },
-    {
-      "fotograf": "assets/images/iphone14pro.png",
-      "isim": "Iphone 19 Pro Max",
-      "fiyat": "54.000.00"
+      "fotograf": "assets/images/iphone12mini.png",
+      "isim": "Iphone 12 Mini",
+      "fiyat": "18.498,99"
     },
   ];
 
