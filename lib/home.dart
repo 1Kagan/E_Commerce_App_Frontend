@@ -121,7 +121,7 @@ Widget buildBanner() {
     child: Container(
       padding: EdgeInsets.only(left: 24, right: 36, top: 14, bottom: 18),
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 244, 244, 245),
+          color: Color.fromARGB(255, 255, 255, 255),
           borderRadius: BorderRadius.circular(6)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -167,9 +167,8 @@ Widget buildNavigation({
 }) {
   return GestureDetector(
     onTap: () {
-      // şuan contex ve widget sahip olmadığımız için ! ve ? işaretlerini kullan
-      // rak required kalıbından kurtuluyoruz ilerleyen zamanda düzenlenicek.
-      Navigator.push(context!, MaterialPageRoute(builder: (context) {
+      Feedback.forTap(context!);
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
         return widget!;
       }));
     },
