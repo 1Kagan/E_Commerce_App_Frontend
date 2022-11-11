@@ -1,18 +1,43 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:e_commerce_app_frontend/category.dart';
+import 'package:e_commerce_app_frontend/pages/allproductpage.dart';
+import 'package:e_commerce_app_frontend/pages/constructionpage.dart';
+import 'package:e_commerce_app_frontend/pages/phonepage.dart';
 import 'package:e_commerce_app_frontend/components/header.dart';
+import 'package:e_commerce_app_frontend/pages/monitorpage.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_app_frontend/components/bottomNavigation.dart';
 
 class CategoriesPage extends StatelessWidget {
-  final List<String> kategoriler = [
-    'Bütün Ürünler',
-    'Akıllı Telefonlar',
-    'Akıllı Saatler',
-    'Kulaklıklar',
-    'Laptoplar',
-    'Aksesuarlar'
+  final List<Map> kategoriler = [
+    {
+      "isim": "Bütün Ürünler",
+      "Sayfa": AllproductPage(),
+    },
+    {
+      "isim": "Akıllı Telefonlar",
+      "Sayfa": CategoryPage(),
+    },
+    {
+      "isim": "Monitorler",
+      "Sayfa": MonitorPage(),
+    },
+    {
+      "isim": "Akıllı Saatler",
+      "Sayfa": ConstructionPage(),
+    },
+    {
+      "isim": "Kulaklıklar",
+      "Sayfa": ConstructionPage(),
+    },
+    {
+      "isim": "Laptoplar",
+      "Sayfa": ConstructionPage(),
+    },
+    {
+      "isim": "Aksesuarlar",
+      "Sayfa": ConstructionPage(),
+    },
   ];
 
   @override
@@ -33,8 +58,10 @@ class CategoriesPage extends StatelessWidget {
                   Expanded(
                     child: ListView(
                       children: kategoriler
-                          .map((String title) =>
-                              buildkategori(title: title, context: context))
+                          .map((Map kategoriler) => buildkategori(
+                              title: kategoriler["isim"],
+                              widget: kategoriler['Sayfa'],
+                              context: context))
                           .toList(),
                     ),
                   )
@@ -50,12 +77,16 @@ class CategoriesPage extends StatelessWidget {
   }
 }
 
-Widget buildkategori({required String title, context}) {
+Widget buildkategori({
+  required String title,
+  Widget? widget,
+  BuildContext? context,
+}) {
   return GestureDetector(
     onTap: () {
-      Feedback.forTap(context);
+      Feedback.forTap(context!);
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return CategoryPage();
+        return widget!;
       }));
     },
     child: Container(

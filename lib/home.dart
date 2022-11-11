@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, non_constant_identifier_names
 
 import 'package:e_commerce_app_frontend/categories.dart';
-import 'package:e_commerce_app_frontend/category.dart';
+import 'package:e_commerce_app_frontend/pages/phonepage.dart';
 import 'package:e_commerce_app_frontend/components/bottomNavigation.dart';
+import 'package:e_commerce_app_frontend/pages/monitorpage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -70,6 +71,8 @@ class _HomePageState extends State<HomePage> {
                       buildSalesItem(
                           text: "Monitorler",
                           PhotoUrl: "assets/images/Monitor.png",
+                          widget: MonitorPage(),
+                          context: context,
                           discount: '-20%',
                           screenWidth: screenWidth),
                     ],

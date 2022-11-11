@@ -1,39 +1,29 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, must_be_immutable, non_constant_identifier_names
 import 'package:flutter/material.dart';
-import 'components/bottomNavigation.dart';
-import 'components/header.dart';
+import 'package:e_commerce_app_frontend/components//bottomNavigation.dart';
+import "package:e_commerce_app_frontend/components/header.dart";
 
-class CategoryPage extends StatelessWidget {
+class ConstructionPage extends StatelessWidget {
   final List<Map> products = [
     {
-      "fotograf": "assets/images/iphone14pro.png",
-      "isim": "Iphone 14 Pro Max",
-      "fiyat": "54.000.00"
+      "fotograf": "assets/images/construction.png",
+      "isim": "Henüz Ürünler Sisteme Eklenmedi!",
+      "fiyat": ""
     },
     {
-      "fotograf": "assets/images/iphone14.png",
-      "isim": "Iphone 14 ",
-      "fiyat": "30.999.00"
+      "fotograf": "assets/images/construction.png",
+      "isim": "Henüz Ürünler Sisteme Eklenmedi!",
+      "fiyat": ""
     },
     {
-      "fotograf": "assets/images/iphone13pro.png",
-      "isim": "Iphone 13 Pro Max ",
-      "fiyat": "44.799.00"
+      "fotograf": "assets/images/construction.png",
+      "isim": "Henüz Ürünler Sisteme Eklenmedi!",
+      "fiyat": ""
     },
     {
-      "fotograf": "assets/images/iphone13mini.png",
-      "isim": "Iphone 13 Mini",
-      "fiyat": "27.199.00"
-    },
-    {
-      "fotograf": "assets/images/iphone12pro.png",
-      "isim": "Iphone 12 Pro Max ",
-      "fiyat": "30.999,00 "
-    },
-    {
-      "fotograf": "assets/images/iphone12mini.png",
-      "isim": "Iphone 12 Mini",
-      "fiyat": "18.498,99"
+      "fotograf": "assets/images/construction.png",
+      "isim": "Henüz Ürünler Sisteme Eklenmedi!",
+      "fiyat": ""
     },
   ];
 
@@ -46,7 +36,7 @@ class CategoryPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //header
-          header(title: 'Akıllı Telefonlar', context: context),
+          header(title: 'Bu Sayfa Yapım Aşamasında !', context: context),
           SizedBox(height: 25),
           //içerik
 
@@ -100,7 +90,7 @@ Widget buildContent({
       child: Column(
         children: [
           SizedBox(
-            height: 16,
+            height: 5,
           ),
           Image.asset(
             photoUrl,
@@ -113,13 +103,13 @@ Widget buildContent({
               Text(
                 title,
                 style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 255, 255, 255)),
+                    color: Color.fromARGB(255, 255, 217, 0)),
               ),
-              Text("$price TL",
+              Text("$price ",
                   style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 11,
                       fontWeight: FontWeight.w500,
                       color: Color.fromARGB(255, 255, 255, 255))),
               SizedBox(

@@ -71,6 +71,11 @@ flutter:
      - assets/images/iphone13mini.png
      - assets/images/iphone12mini.png
      - assets/images/iphone14.png
+     - assets/images/aoc100hz.png
+     - assets/images/gamepower4k.png
+     - assets/images/benqmonitor.png
+     - assets/images/asusmonitor.png
+     - assets/images/construction.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
