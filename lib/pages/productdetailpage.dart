@@ -4,12 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:hexcolor/hexcolor.dart';
 import '../components/header.dart';
 import '../controller/product_controller.dart';
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
+  @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
   final ProductController productController = Get.put(ProductController());
+
+  List<String> availableStorages = ['128GB', '256GB', '512GB', '1TB'];
+  int _selectedIndex = 0;
 
   final List<SmProduct> smProducts = [
     SmProduct(image: 'assets/images/iphone13pro.png'),
@@ -35,8 +42,10 @@ class ProductDetailPage extends StatelessWidget {
             width: double.infinity,
             child: Image.asset(
               'assets/images/iphone14pro.png',
-              fit: BoxFit.scaleDown,
             ),
+          ),
+          SizedBox(
+            height: 25,
           ),
           Row(
             children: [
@@ -57,12 +66,28 @@ class ProductDetailPage extends StatelessWidget {
               Text(
                 '54.000,00 TL',
                 style: GoogleFonts.poppins(
-                  color: Color.fromARGB(255, 73, 72, 72),
+                  color: Color.fromARGB(255, 97, 95, 95),
                   fontSize: 22,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ],
+          ),
+          SizedBox(
+            height: 35,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: availableStorages.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () => setState(() {
+                    _selectedIndex = index;
+                  }),
+                  child: storageWidget(
+                      _selectedIndex == index, availableStorages[index]),
+                );
+              },
+            ),
           ),
           Expanded(
             child: Stack(
@@ -79,6 +104,16 @@ class ProductDetailPage extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+                        Text(
+                          'Dayanıklılık için tasarlandı.Tüm akıllı telefon camlarından daha sağlam olan Ceramic Shield. Suya dayanıklı tasarım.1 Cerrahi sınıf paslanmaz çelik. 6.1 inç ve 6.7 inç ekran boyutları.2 Ve dört Pro renk seçeneği.',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
                         const Image(
                             image: AssetImage('assets/images/appleinfo2.gif')),
                         Image.asset('assets/images/appleinfo3.jpg'),
@@ -127,7 +162,7 @@ class ProductDetailPage extends StatelessWidget {
                     width: 50,
                     height: 5,
                     decoration: BoxDecoration(
-                      color: AppColors.kGreyColor,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(50),
                     ),
                   ),
@@ -181,10 +216,10 @@ class ProductDetailPage extends StatelessWidget {
                             ),
                           )
                         : Text(
-                            '+ Sepete Ekle',
+                            'Sepete Ekle',
                             style: GoogleFonts.poppins(
                               fontSize: 15,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
@@ -204,8 +239,24 @@ class SmProduct {
   SmProduct({required this.image});
 }
 
-class AppColors {
-  static HexColor kBgColor = HexColor('e7ded7');
-  static HexColor kGreyColor = HexColor('dcdde2');
-  static HexColor kSmProductBgColor = HexColor('f9f9f9');
+Widget storageWidget(isSelected, String text) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10),
+    child: Container(
+      alignment: Alignment.center,
+      width: 75,
+      decoration: BoxDecoration(
+        color: isSelected ? Colors.black : Color.fromARGB(255, 214, 197, 248),
+        border: Border.all(color: Colors.white, width: isSelected ? 2 : 0),
+        borderRadius: BorderRadius.circular(40),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.bold,
+            color: isSelected ? Colors.white : Colors.black),
+      ),
+    ),
+  );
 }
