@@ -52,7 +52,10 @@ class CategoriesPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //Başlık Kısmı
-                  header(title: 'Kategoriler', context: context),
+                  header(
+                      color: Colors.white,
+                      title: 'Kategoriler',
+                      context: context),
                   SizedBox(height: 16),
                   //Kategorilerin Listelendiği Kısım
                   Expanded(

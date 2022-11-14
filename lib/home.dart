@@ -6,6 +6,7 @@ import 'package:e_commerce_app_frontend/pages/phonepage.dart';
 import 'package:e_commerce_app_frontend/components/bottomNavigation.dart';
 import 'package:e_commerce_app_frontend/pages/monitorpage.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -34,13 +35,13 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           buildNavigation(
                               text: "Kategoriler",
-                              icon: Icons.menu,
+                              icon: Ionicons.reorder_three,
                               widget: CategoriesPage(),
                               context: context),
                           buildNavigation(
-                              text: "Favoriler", icon: Icons.star_border),
+                              text: "Favoriler", icon: Ionicons.star),
                           buildNavigation(
-                              text: "Hediyeler", icon: Icons.card_giftcard),
+                              text: "Hediyeler", icon: Ionicons.gift),
                           buildNavigation(
                               text: "Çok Satanlar", icon: Icons.people),
                         ]),

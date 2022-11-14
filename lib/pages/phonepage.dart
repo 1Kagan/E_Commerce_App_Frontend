@@ -2,38 +2,45 @@
 import 'package:flutter/material.dart';
 import '../components/bottomNavigation.dart';
 import '../components/header.dart';
+import 'productdetailpage.dart';
 
 class CategoryPage extends StatelessWidget {
   final List<Map> products = [
     {
       "fotograf": "assets/images/iphone14pro.png",
       "isim": "Iphone 14 Pro Max",
-      "fiyat": "54.000.00"
+      "fiyat": "54.000.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone14.png",
       "isim": "Iphone 14 ",
-      "fiyat": "30.999.00"
+      "fiyat": "30.999.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone13pro.png",
       "isim": "Iphone 13 Pro Max ",
-      "fiyat": "44.799.00"
+      "fiyat": "44.799.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone13mini.png",
       "isim": "Iphone 13 Mini",
-      "fiyat": "27.199.00"
+      "fiyat": "27.199.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone12pro.png",
       "isim": "Iphone 12 Pro Max ",
-      "fiyat": "30.999,00 "
+      "fiyat": "30.999,00 ",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone12mini.png",
       "isim": "Iphone 12 Mini",
-      "fiyat": "18.498,99"
+      "fiyat": "18.498,99",
+      "Sayfa": ProductDetailPage(),
     },
   ];
 
@@ -46,7 +53,10 @@ class CategoryPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //header
-          header(title: 'Akıllı Telefonlar', context: context),
+          header(
+              color: Colors.white,
+              title: 'Akıllı Telefonlar',
+              context: context),
           SizedBox(height: 25),
           //içerik
 
@@ -59,7 +69,9 @@ class CategoryPage extends StatelessWidget {
                   return buildContent(
                       photoUrl: product["fotograf"],
                       title: product["isim"],
-                      price: product["fiyat"]);
+                      price: product["fiyat"],
+                      widget: product['Sayfa'],
+                      context: context);
                 }).toList()),
           )
         ]),

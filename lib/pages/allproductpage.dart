@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:e_commerce_app_frontend/components//bottomNavigation.dart';
 import "package:e_commerce_app_frontend/components/header.dart";
 
-import '../productdetailpage.dart';
+import 'productdetailpage.dart';
 
 class AllproductPage extends StatelessWidget {
   final List<Map> products = [
@@ -78,7 +78,7 @@ class AllproductPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //header
-          header(title: 'Tüm Ürünler', context: context),
+          header(color: Colors.white, title: 'Tüm Ürünler', context: context),
           SizedBox(height: 25),
           //içerik
 
@@ -110,14 +110,14 @@ Widget buildContent({
   required String photoUrl,
   required String title,
   required String price,
-  Widget? widget,
-  BuildContext? context,
+  required Widget widget,
+  required BuildContext context,
 }) {
   return GestureDetector(
     onTap: () {
-      Feedback.forTap(context!);
+      Feedback.forTap(context);
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return widget!;
+        return widget;
       }));
     },
     child: Container(

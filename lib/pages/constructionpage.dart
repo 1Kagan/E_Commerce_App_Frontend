@@ -36,7 +36,10 @@ class ConstructionPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //header
-          header(title: 'Bu Sayfa Yapım Aşamasında !', context: context),
+          header(
+              color: Colors.white,
+              title: 'Bu Sayfa Yapım Aşamasında !',
+              context: context),
           SizedBox(height: 25),
           //içerik
 

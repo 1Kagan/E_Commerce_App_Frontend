@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget header({required String title, context}) {
+Widget header({required color, required String title, context}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -16,7 +16,7 @@ Widget header({required String title, context}) {
         },
         child: Icon(
           Icons.arrow_back,
-          color: Colors.white,
+          color: color,
           size: 27,
         ),
       ),

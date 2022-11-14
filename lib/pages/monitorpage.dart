@@ -3,27 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:e_commerce_app_frontend/components//bottomNavigation.dart';
 import "package:e_commerce_app_frontend/components/header.dart";
 
+import 'productdetailpage.dart';
+
 class MonitorPage extends StatelessWidget {
   final List<Map> products = [
     {
       "fotograf": "assets/images/aoc100hz.png",
       "isim": "Aoc Curved 34″1ms Monitor",
-      "fiyat": "7.910,45"
+      "fiyat": "7.910,45",
+      "Sayfa": ProductDetailPage()
     },
     {
       "fotograf": "assets/images/gamepower4k.png",
       "isim": "Gigabyte 1ms 165Hz Monitor ",
-      "fiyat": "17.931,08"
+      "fiyat": "17.931,08",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/benqmonitor.png",
       "isim": "BenQ IPS 1ms 165Hz Monitor ",
-      "fiyat": "6.122,81"
+      "fiyat": "6.122,81",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/asusmonitor.png",
       "isim": "Asus 27″ROG Gaming Monitor",
-      "fiyat": "11.999,00"
+      "fiyat": "11.999,00",
+      "Sayfa": ProductDetailPage(),
     },
   ];
 
@@ -36,7 +42,7 @@ class MonitorPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //header
-          header(title: 'Monitorler', context: context),
+          header(color: Colors.white, title: 'Monitorler', context: context),
           SizedBox(height: 25),
           //içerik
 
@@ -49,7 +55,9 @@ class MonitorPage extends StatelessWidget {
                   return buildContent(
                       photoUrl: product["fotograf"],
                       title: product["isim"],
-                      price: product["fiyat"]);
+                      price: product["fiyat"],
+                      widget: product['Sayfa'],
+                      context: context);
                 }).toList()),
           )
         ]),
@@ -63,14 +71,14 @@ Widget buildContent({
   required String photoUrl,
   required String title,
   required String price,
-  Widget? widget,
-  BuildContext? context,
+  required Widget widget,
+  required BuildContext context,
 }) {
   return GestureDetector(
     onTap: () {
-      Feedback.forTap(context!);
+      Feedback.forTap(context);
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return widget!;
+        return widget;
       }));
     },
     child: Container(
