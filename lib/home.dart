@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, non_constant_identifier_names
 
 import 'package:e_commerce_app_frontend/categories.dart';
+import 'package:e_commerce_app_frontend/pages/constructionpage.dart';
 import 'package:e_commerce_app_frontend/pages/phonepage.dart';
 import 'package:e_commerce_app_frontend/components/bottomNavigation.dart';
 import 'package:e_commerce_app_frontend/pages/monitorpage.dart';
@@ -87,10 +88,14 @@ class _HomePageState extends State<HomePage> {
                           text: "Akıllı Saatler",
                           PhotoUrl: "assets/images/watch.png",
                           discount: '-40%',
+                          context: context,
+                          widget: ConstructionPage(),
                           screenWidth: screenWidth),
                       buildSalesItem(
                           text: "Kulaklıklar",
                           PhotoUrl: "assets/images/airpod.png",
+                          context: context,
+                          widget: ConstructionPage(),
                           discount: '-60%',
                           screenWidth: screenWidth),
                     ],

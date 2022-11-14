@@ -3,57 +3,69 @@ import 'package:flutter/material.dart';
 import 'package:e_commerce_app_frontend/components//bottomNavigation.dart';
 import "package:e_commerce_app_frontend/components/header.dart";
 
+import '../productdetailpage.dart';
+
 class AllproductPage extends StatelessWidget {
   final List<Map> products = [
     {
       "fotograf": "assets/images/iphone14pro.png",
       "isim": "Iphone 14 Pro Max",
-      "fiyat": "54.000.00"
+      "fiyat": "54.000.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone14.png",
       "isim": "Iphone 14 ",
-      "fiyat": "30.999.00"
+      "fiyat": "30.999.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone13pro.png",
       "isim": "Iphone 13 Pro Max ",
-      "fiyat": "44.799.00"
+      "fiyat": "44.799.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone13mini.png",
       "isim": "Iphone 13 Mini",
-      "fiyat": "27.199.00"
+      "fiyat": "27.199.00",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone12pro.png",
       "isim": "Iphone 12 Pro Max ",
-      "fiyat": "30.999,00 "
+      "fiyat": "30.999,00 ",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/iphone12mini.png",
       "isim": "Iphone 12 Mini",
-      "fiyat": "18.498,99"
+      "fiyat": "18.498,99",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/aoc100hz.png",
       "isim": "Aoc Curved 34″1ms Monitor",
-      "fiyat": "7.910,45"
+      "fiyat": "7.910,45",
+      "Sayfa": ProductDetailPage()
     },
     {
       "fotograf": "assets/images/gamepower4k.png",
       "isim": "Gigabyte 1ms 165Hz Monitor ",
-      "fiyat": "17.931,08"
+      "fiyat": "17.931,08",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/benqmonitor.png",
       "isim": "BenQ IPS 1ms 165Hz Monitor ",
-      "fiyat": "6.122,81"
+      "fiyat": "6.122,81",
+      "Sayfa": ProductDetailPage(),
     },
     {
       "fotograf": "assets/images/asusmonitor.png",
       "isim": "Asus 27″ROG Gaming Monitor",
-      "fiyat": "11.999,00"
+      "fiyat": "11.999,00",
+      "Sayfa": ProductDetailPage(),
     },
   ];
 
@@ -79,7 +91,9 @@ class AllproductPage extends StatelessWidget {
                   return buildContent(
                       photoUrl: product["fotograf"],
                       title: product["isim"],
-                      price: product["fiyat"]);
+                      price: product["fiyat"],
+                      widget: product['Sayfa'],
+                      context: context);
                 }).toList()),
           ),
           SizedBox(
