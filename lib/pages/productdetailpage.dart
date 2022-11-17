@@ -15,8 +15,8 @@ class ProductDetailPage extends StatefulWidget {
 class _ProductDetailPageState extends State<ProductDetailPage> {
   final ProductController productController = Get.put(ProductController());
 
-  List<String> availableStorages = ['128GB', '256GB', '512GB', '1TB'];
-  int _selectedIndex = 0;
+  final List<String> availableStorages = ['128GB', '256GB', '512GB', '1TB'];
+  int _selectedIndex = 1;
 
   final List<SmProduct> smProducts = [
     SmProduct(image: 'assets/images/iphone13pro.png'),
@@ -64,7 +64,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 width: 40,
               ),
               Text(
-                '54.000,00 TL',
+                "54000 TL",
                 style: GoogleFonts.poppins(
                   color: Color.fromARGB(255, 97, 95, 95),
                   fontSize: 22,
@@ -116,7 +116,16 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         ),
                         const Image(
                             image: AssetImage('assets/images/appleinfo2.gif')),
-                        Image.asset('assets/images/appleinfo3.jpg'),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Karşınızda Dynamic Island. Gerçek bir Apple inovasyonu. Hem donanım hem yazılım hem de ikisinin ortası. Dynamic Island, sizi o an yaptığınız şeyden uzaklaştırmadan müziğinizi, maç skorlarını, FaceTime’ı ve daha fazlasını hop diye gözünüzün önüne getiriyor.',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                         const SizedBox(height: 25),
                         Text(
                           'Benzer Ürünler',

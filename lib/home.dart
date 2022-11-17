@@ -149,7 +149,7 @@ Widget buildBanner() {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
-                    fontWeight: FontWeight.w600),
+                    fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 4,
@@ -165,7 +165,7 @@ Widget buildBanner() {
           ),
           Image.asset(
             "assets/images/macbookm2.png",
-            width: 130,
+            width: 100,
             height: 110,
           ),
         ],
