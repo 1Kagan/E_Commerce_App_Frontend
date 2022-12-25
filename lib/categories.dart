@@ -94,14 +94,14 @@ Widget buildkategori({
     },
     child: Container(
       padding: EdgeInsets.all(24),
-      margin: EdgeInsets.only(bottom: 16),
+      margin: EdgeInsets.only(bottom: 12),
       width: double.infinity,
       decoration: BoxDecoration(
           color: Color.fromARGB(85, 87, 85, 85),
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(
-                color: Color.fromARGB(159, 92, 90, 90).withOpacity(0.25),
+                color: Color.fromARGB(159, 188, 183, 183).withOpacity(0.25),
                 blurRadius: 4,
                 offset: Offset(0, 4)),
           ]),

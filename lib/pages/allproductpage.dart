@@ -50,12 +50,6 @@ class AllproductPage extends StatelessWidget {
       "Sayfa": ProductDetailPage()
     },
     {
-      "fotograf": "assets/images/gamepower4k.png",
-      "isim": "Gigabyte 1ms 165Hz Monitor ",
-      "fiyat": "17.931,08",
-      "Sayfa": ProductDetailPage(),
-    },
-    {
       "fotograf": "assets/images/benqmonitor.png",
       "isim": "BenQ IPS 1ms 165Hz Monitor ",
       "fiyat": "6.122,81",
@@ -136,33 +130,41 @@ Widget buildContent({
       ),
       child: Column(
         children: [
-          SizedBox(
-            height: 16,
-          ),
-          Image.asset(
-            photoUrl,
-            height: 120,
-            width: 1200,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 255, 255, 255)),
-              ),
-              Text("$price TL",
-                  style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 255, 255, 255))),
-              SizedBox(
-                height: 18,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 16,
+                ),
+                Image.asset(
+                  photoUrl,
+                  height: 120,
+                  width: 150,
+                  fit: BoxFit.cover,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 255, 255, 255)),
+                    ),
+                    Divider(
+                      height: 5,
+                      color: Colors.transparent,
+                    ),
+                    Text("$price TL",
+                        style: TextStyle(
+                            fontSize: 11,
+                            color: Color.fromARGB(255, 255, 255, 255))),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

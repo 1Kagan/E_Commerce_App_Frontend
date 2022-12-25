@@ -97,33 +97,41 @@ Widget buildContent({
       ),
       child: Column(
         children: [
-          SizedBox(
-            height: 16,
-          ),
-          Image.asset(
-            photoUrl,
-            height: 120,
-            width: 1200,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 255, 255, 255)),
-              ),
-              Text("$price TL",
-                  style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 255, 255, 255))),
-              SizedBox(
-                height: 18,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 16,
+                ),
+                Image.asset(
+                  photoUrl,
+                  height: 120,
+                  width: 150,
+                  fit: BoxFit.cover,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 255, 255, 255)),
+                    ),
+                    Divider(
+                      height: 5,
+                      color: Colors.transparent,
+                    ),
+                    Text("$price TL",
+                        style: TextStyle(
+                            fontSize: 11,
+                            color: Color.fromARGB(255, 255, 255, 255))),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
